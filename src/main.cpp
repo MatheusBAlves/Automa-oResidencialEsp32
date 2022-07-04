@@ -186,13 +186,14 @@ void led_wifi()
                         client.println("<link rel=\"icon\" href=\"data:,\">");
 
                         client.println("<style>h1{text-align: center; font-size: 40px;}");
-                        client.println("html {font-family: 'Times New Roman'; text-align: center;}");
-                        client.println("body {background-image: linear-gradient(to right, #ccc, #fff);}");
-                        client.println(".tabela { gap: 20px; display: flex; justify-content: center; flex-wrap: wrap;}");
+                        client.println("html {font-family: 'Times New Roman';}");
+                        client.println("body {background-image: linear-gradient(to right, #5b5b58, #777);}");
+                        client.println("h1 {color: #e5ff00;text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.89);}");
+                        client.println(".tabela { row-gap: 15px; column-gap: 2px; display: flex; justify-content: center; flex-wrap: wrap;}");
                         client.println(".botoes {text-align: center;}");
-                        client.println("button {width: 180px; height: 70px;}");
+                        client.println("button {width: 150px; height: 70px;}");
                         client.println(".escrita { font-size: 20px; font-weight: 800;}");
-                        client.println(".style1{font-family: Arial;color: #cccccc;font-size: 20px; padding: 20px; margin: 2px;background-color: #444444;cursor: pointer; box-shadow: -2px 3px 7px 1px rgba(0, 0, 0, 0.76); border: 3px solid rgba(0, 0, 0, 0.63);}");
+                        client.println(".style1{font-family: Arial;color: #cccccc;font-size: 20px;background-color: #444444;cursor: pointer; box-shadow: -2px 3px 7px 1px rgba(0, 0, 0, 0.76); border: 3px solid rgba(0, 0, 0, 0.63);}");
                         client.println(".btOn{background-color: #3f459e;}");
                         client.println(".btOff{background-color: #616161;}");
                         client.println("</style>");

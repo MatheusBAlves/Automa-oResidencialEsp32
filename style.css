@@ -9,7 +9,12 @@ html{
 }
 
 body {
-    background-image: linear-gradient(to right, #ccc, #fff); 
+    background-image: linear-gradient(to left, #777, #5b5b58); 
+}
+
+h1 {
+    color: #e5ff00;
+    text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.89);
 }
 
 .tabela {
@@ -24,12 +29,13 @@ body {
 }
 
 button {
-    width: 150px;
+    width: 180px;
     height: 70px;
 }
 
 .escrita{
     font-size: 20px;
+    font-weight: 800;
 }
 
 .style1{
@@ -41,7 +47,7 @@ button {
     background-color: #444444;
     cursor: pointer;
     box-shadow: -2px 3px 7px 1px rgba(0, 0, 0, 0.76);
-    border: 2px solid rgba(0, 0, 0, 0.63);
+    border: 3px solid rgba(0, 0, 0, 0.63);
 }
 
 .btOn{
