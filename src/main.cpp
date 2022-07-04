@@ -2,7 +2,7 @@
 
 #include <WiFi.h>
 
-#define led1 33
+#define led1 2
 #define led2 32
 #define led3 14
 #define led4 18
@@ -43,11 +43,11 @@ void setup()
     pinMode(led4, OUTPUT);
     pinMode(led5, OUTPUT);
 
-    digitalWrite(led1, HIGH);
-    digitalWrite(led2, HIGH);
-    digitalWrite(led3, HIGH);
-    digitalWrite(led4, HIGH);
-    digitalWrite(led5, HIGH);
+    digitalWrite(led1, LOW);
+    digitalWrite(led2, LOW);
+    digitalWrite(led3, LOW);
+    digitalWrite(led4, LOW);
+    digitalWrite(led5, LOW);
 
     Serial.println();
     Serial.print("Conectando-se a ");
@@ -125,12 +125,12 @@ void led_wifi()
                         if (header.indexOf("GET /d33/on") >= 0)
                         {
                             Led1_status = "ON";
-                            digitalWrite(led1, LOW);
+                            digitalWrite(led1, HIGH);
                         }
                         else if (header.indexOf("GET /d33/off") >= 0)
                         {
                             Led1_status = "OFF";
-                            digitalWrite(led1, HIGH);
+                            digitalWrite(led1, LOW);
                         }
 
                         if (header.indexOf("GET /d32/on") >= 0)
@@ -185,9 +185,14 @@ void led_wifi()
                         client.println("<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
                         client.println("<link rel=\"icon\" href=\"data:,\">");
 
-                        client.println("<style>h1{font-size: 40px;}");
-                        client.println("html{font-family: 'Times New Roman'; text-align: center;background-color: #cccccc;}");
-                        client.println(".style1{font-family: Arial;color: #cccccc;font-size: 20px;padding: 20px 20px ;margin: 2px;background-color: #444444;cursor: pointer;}");
+                        client.println("<style>h1{text-align: center; font-size: 40px;}");
+                        client.println("html {font-family: 'Times New Roman'; text-align: center;}");
+                        client.println("body {background-image: linear-gradient(to right, #ccc, #fff);}");
+                        client.println(".tabela { gap: 20px; display: flex; justify-content: center; flex-wrap: wrap;}");
+                        client.println(".botoes {text-align: center;}");
+                        client.println("button {width: 180px; height: 70px;}");
+                        client.println(".escrita { font-size: 20px; font-weight: 800;}");
+                        client.println(".style1{font-family: Arial;color: #cccccc;font-size: 20px; padding: 20px; margin: 2px;background-color: #444444;cursor: pointer; box-shadow: -2px 3px 7px 1px rgba(0, 0, 0, 0.76); border: 3px solid rgba(0, 0, 0, 0.63);}");
                         client.println(".btOn{background-color: #3f459e;}");
                         client.println(".btOff{background-color: #616161;}");
                         client.println("</style>");
@@ -197,37 +202,49 @@ void led_wifi()
                         client.println("<body><h1>Controle de Led</h1>");
                         client.println("<h1>Wi-Fi</h1>");
 
-                        client.println("<p>Led1 Status: " + Led1_status + "</p>");
+                        client.println("<div class='tabela'>");
+
+                        client.println("<div class= 'botoes'>");
+                        // client.println("<p class='escrita'>Led1 Status: " + Led1_status + "</p>");
                         if (Led1_status == "OFF")
-                            client.println("<p><a href=\"/d33/on\">  <button class=\"style1 btOn\">Ligar Led1</button></a></p>");
+                            client.println("<a href=\"/d33/on\">  <button class=\"style1 btOn\"><strong>Ligar Led1</strong></button></a>");
                         else
-                            client.println("<p><a href =\"/d33/off\"> <button class=\"style1 btOff\"><strong>Desligar Led1</strong></button></a></p>");
+                            client.println("<a href =\"/d33/off\"> <button class=\"style1 btOff\"><strong>Desligar Led1</strong></button></a>");
+                        client.println("</div>");
 
-                        client.println("<p>Led2 Status: " + Led2_status + "</p>");
+                        client.println("<div class= 'botoes'>");
+                        // client.println("<p class='escrita'>Led2 Status: " + Led2_status + "</p>");
                         if (Led2_status == "OFF")
-                            client.println("<p><a href =\"/d32/on\">  <button class=\"style1 btOn\">Ligar Led2</button></a></p>");
+                            client.println("<a href =\"/d32/on\">  <button class=\"style1 btOn\"><strong>Ligar Led2</strong></button></a>");
                         else
-                            client.println("<p><a href =\"/d32/off\"> <button class=\"style1 btOff\"><strong>Desligar Led2</strong></button></a></p>");
+                            client.println("<a href =\"/d32/off\"> <button class=\"style1 btOff\"><strong>Desligar Led2</strong></button></a>");
+                        client.println("</div>");
 
-                        client.println("<p>Led3 Status: " + Led3_status + "</p>");
+                        client.println("<div class= 'botoes'>");
+                        // client.println("<p class='escrita'>Led3 Status: " + Led3_status + "</p>");
                         if (Led3_status == "OFF")
-                            client.println("<p><a href=\"/d34/on\">  <button class=\"style1 btOn\">Ligar Led3</button></a></p>");
+                            client.println("<a href=\"/d34/on\">  <button class=\"style1 btOn\"><strong>Ligar Led3</strong></button></a>");
                         else
-                            client.println("<p><a href =\"/d34/off\"> <button class=\"style1 btOff\"><strong>Desligar Led3</strong></button></a></p>");
+                            client.println("<a href =\"/d34/off\"> <button class=\"style1 btOff\"><strong>Desligar Led3</strong></button></a>");
+                        client.println("</div>");
 
-                        client.println("<p>Led4 Status: " + Led4_status + "</p>");
+                        client.println("<div class= 'botoes'>");
+                        // client.println("<p class='escrita'>Led4 Status: " + Led4_status + "</p>");
                         if (Led4_status == "OFF")
-                            client.println("<p><a href=\"/d18/on\">  <button class=\"style1 btOn\">Ligar Led4</button></a></p>");
+                            client.println("<a href=\"/d18/on\">  <button class=\"style1 btOn\"><strong>Ligar Led4</strong></button></a>");
                         else
-                            client.println("<p><a href =\"/d18/off\"> <button class=\"style1 btOff\"><strong>Desligar Led4</strong></button></a></p>");
+                            client.println("<a href =\"/d18/off\"> <button class=\"style1 btOff\"><strong>Desligar Led4</strong></button></a>");
+                        client.println("</div>");
 
-                        client.println("<p>Led5 Status: " + Led5_status + "</p>");
+                        client.println("<div class= 'botoes'>");
+                        // client.println("<p class='escrita'>Led5 Status: " + Led5_status + "</p>");
                         if (Led5_status == "OFF")
-                            client.println("<p><a href=\"/d21/on\">  <button class=\"style1 btOn\">Ligar Led5</button></a></p>");
+                            client.println("<a href=\"/d21/on\">  <button class=\"style1 btOn\"><strong>Ligar Led5</strong></button></a>");
                         else
-                            client.println("<p><a href =\"/d21/off\"> <button class=\"style1 btOff\"><strong>Desligar Led5</strong></button></a></p>");
+                            client.println("<a href =\"/d21/off\"> <button class=\"style1 btOff\"><strong>Desligar Led5</strong></button></a>");
+                        client.println("</div>");
 
-                        client.println("</body></html>");
+                        client.println("</div></body></html>");
                         client.println("");
                         break;
                     }
