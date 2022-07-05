@@ -189,7 +189,7 @@ void led_wifi()
                         client.println("html {font-family: 'Times New Roman';}");
                         client.println("body {background-image: linear-gradient(to right, #5b5b58, #777);}");
                         client.println("h1 {color: #e5ff00;text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.89);}");
-                        client.println(".tabela { row-gap: 15px; column-gap: 2px; display: flex; justify-content: center; flex-wrap: wrap;}");
+                        client.println(".tabela { row-gap: 15px; column-gap: 20px; display: flex; justify-content: center; flex-wrap: wrap;}");
                         client.println(".botoes {text-align: center;}");
                         client.println("button {width: 150px; height: 70px;}");
                         client.println(".escrita { font-size: 20px; font-weight: 800;}");
